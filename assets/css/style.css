@@ -1,0 +1,49 @@
+.container {
+	text-align: center;
+	align-items: center;
+	clear:both;
+
+}
+
+button {
+	width: 300px;
+	padding: 30px;
+	border: 1px solid black;
+	border-radius: 10px 10px 10px 10px;
+	padding-right: 75px;
+	grid-column: 3;
+	grid-row: 1;
+	clear:both;
+	margin-top: 30px;
+
+}
+
+button#reset {
+	width: 70px;
+
+}
+button:hover {
+	box-shadow: 5px 5px 5px rgba(0,0,0,5);
+	align-items: center;
+	clear:both;
+	outline: 0;
+	cursor: pointer;
+}
+
+
+#grid {
+
+	font-size: 60px;
+	text-align: center;
+	padding: 2px opx;
+	border-radius: 50px;
+}
+
+#grid.answerchoices {
+	font-size: 30px;
+	color: black;
+
+}
+.clear {
+	clear:both;
+}
