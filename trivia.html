@@ -2,55 +2,55 @@
 <html>
 <head>
 	<title>Trivia Game</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <script src="assets/javascript/app.js"></script>
 
 </head>
 <body>
-    <script src="assets/javascript/app.js"></script>
-    	<a href="index.html"></a>
-
-   
-	    <div class="container">
+    <div class="container">
+    	<div class="game"></div>
+	    <div class="timer"></div>
+	    <div class="question"></div>
+	    <div class="answers"></div>
 	    	
-	    	<div class="game"></div>
-		    <div class="timer"></div>
-		    <div class="question"></div>
-		    <div class="answers">
-		    	
-		    	<!--Creating button options for user to click on-->
-		    	<!--grid system to divide up the buttons-->
-		    		<div id="grid">
-				    	<div class="AnswerChoices">
-				    			
-				    			<div><button id="button1"><span id="choice1"></span></button></div>
+	    	<!--Creating button options for user to click on-->
+	    	<!--grid system to divide up the buttons-->
+    		<div id="grid">
+		    	<div class="AnswerChoices">
+		    			
+	    			<div><button id="button1"><span id="choice1"></span></button></div>
 
-					    		<div><button id="button2"><span id="choice2"></span></button></div>
+		    		<div><button id="button2"><span id="choice2"></span></button></div>
 
-					    		<div><button id="button3"><span id="choice3"></span></button></div>
+		    		<div><button id="button3"><span id="choice3"></span></button></div>
 
-					    		<div><button id="button4"><span id="choice4"></span></button></div>
+		    		<div><button id="button4"><span id="choice4"></span></button></div>
 
-					    	<div class="clear"></div>
-					    	</div>
+			    	<div class="clear"></div>
+			    </div>
 
 
-		    		</div>
-	    	</div>
+    		</div>
 
-	    <footer>
+
+	      <footer>
 	    	<p id="correct answer">Correct: </p>
 	    	<p id="wrong answer">Incorrect: </p>
 	    	<!--reset//-->
-	    	<input type="button" onclick="location.href='index.html';" value="Another Round?" />
+	    	<input id="roundButton" type="button" value="Another Round?" />
 	    </footer>
-	    </div>
+    </div>
+
+
 	    			<!--Want this to load as a separate page from the quiz
 	    	    	<div class="wrapper">
 	    		<h1><p>Your Mission, should you choose to accept it is to challenge your kowledge on Blizzard Entertainment</p></h1>
 	    		<p>Let's get started!!</p>
 	    	</div>-->
+</body>
+</html>
 
 
 

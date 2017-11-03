@@ -12,57 +12,98 @@ var answers = [];
 var correctAnswer = 0;
 var incorrectAnswer = 0;
 
+var numRounds = 0;
+
 //console.log(question);
 //shows as undefined at this point//
 var questions = [
-new TriviaQuestion("number1?", ["A", "B", "C", "D"], "B"),
-new TriviaQuestion("number2?", ["A", "B", "C", "D"], "B"),
-new TriviaQuestion("number2?", ["A", "B", "C", "D"], "B"),
-new TriviaQuestion("number2?", ["A", "B", "C", "D"], "B"),
-
+	new TriviaQuestion("number1?", ["This is a random", "B", "C", "D"], "A"),
+	new TriviaQuestion("number2?", ["lol", "B", "C", "D"], "B"),
+	new TriviaQuestion("number3?", ["jk", "B", "C", "D"], "C"),
+	new TriviaQuestion("number4?", ["A", "B", "C", "D"], "D"),
 ];
 
-function TriviaQuiz(questions) {
-	this.questions = questions;
+var quiz = null;
+
+//Computer will choose Triviaquestions radomly from questions//
+function TriviaPlay(questions) {
+	this.selected = questions[numRounds];
 	this.timer = 0;
+	console.log(this);
 }
 
-
+//Degines the array in Triviaquestion//
 function TriviaQuestion(text, choices, answer) {
     this.text = text;
     this.choices = choices;
     this.answer = answer;
 }
 
+function renderHTML() {
+	$("#choice1").html(quiz.selected.choices[0]);
+	$("#choice2").html(quiz.selected.choices[1]);
+	$("#choice3").html(quiz.selected.choices[2]);
+	$("#choice4").html(quiz.selected.choices[3]);
 
-function shuffleArray(array) {
-	for (var i=0; i<array.length; i++) {
-		let j = Math.floor(Math.random() * (i+1));
-		[array[i], array[j]] = [array[j], array[i]];
-		console.log([i]);
+	$(".question").html(quiz.selected.text);
+}
+
+function onEndGame() {
+	$("#roundButton").show();
+}
+
+function showQuestion() {
+	quiz = new TriviaPlay(questions);
+	renderHTML();
+}
+
+function onButtonClick(num) {
+	if(quiz.selected.choices[num-1] == quiz.selected.answer) {
+		correctAnswer++;
 	}
+	else {
+		incorrectAnswer++;
+	}
+
+	$(".answers").html(quiz.selected.answer);
+
+	++numRounds
+	if (numRounds >= questions.length) {
+		onEndGame();
+		return;
+	}
+
+	showQuestion();
 }
-//Making the list of questions//
 
-//console.log(questions);
+function registerEventListeners() {
+	$( "#roundButton" ).click(function() {
+		numRounds = 0;
+		showQuestion();
+	});
+	$( "#roundButton").hide();
 
+	$( "#button1" ).click(function() {
+		onButtonClick(1);
+	});
 
-function get(x) {
-	return document.getElementById(x);
+	$( "#button2" ).click(function() {
+		onButtonClick(2);
+	});
 
+	$( "#button3" ).click(function() {
+		onButtonClick(3);
+	});
+
+	$( "#button4" ).click(function() {
+		onButtonClick(4);
+	});
 }
 
-
-
-var quiz = new TriviaQuiz(questions);
-//console.log(quiz.questions)
-// use quiz.timer
-
-
-
-
-
-
+$(document).ready(function() {
+	registerEventListeners();
+	showQuestion();
+});
 
 
 

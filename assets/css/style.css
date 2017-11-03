@@ -37,10 +37,9 @@ button:hover {
 
 
 #grid {
-
 	font-size: 60px;
 	text-align: center;
-	padding: 2px opx;
+	padding: 2px 0px;
 	border-radius: 50px;
 }
 
@@ -51,4 +50,9 @@ button:hover {
 }
 .clear {
 	clear:both;
+}
+
+.question {
+	margin-bottom: 100px;
+	text-align: center;
 }
