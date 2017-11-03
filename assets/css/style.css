@@ -5,7 +5,7 @@
 
 }
 
-button {
+#button1, #button2, #button3, #button4 {
 	width: 300px;
 	padding: 30px;
 	border: 1px solid black;
@@ -28,6 +28,11 @@ button:hover {
 	clear:both;
 	outline: 0;
 	cursor: pointer;
+}
+
+.startButton {
+	width: 80px;
+	text-align: center;
 }
 
 

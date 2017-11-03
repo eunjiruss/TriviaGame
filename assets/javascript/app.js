@@ -7,7 +7,6 @@
 //The game loads after sencond alert"//
 
 //Define variables//
-var questions
 var userAnswer = 0;
 var answers = [];
 var correctAnswer = 0;
@@ -15,11 +14,19 @@ var incorrectAnswer = 0;
 
 //console.log(question);
 //shows as undefined at this point//
+var questions = [
+new TriviaQuestion("number1?", ["A", "B", "C", "D"], "B"),
+new TriviaQuestion("number2?", ["A", "B", "C", "D"], "B"),
+new TriviaQuestion("number2?", ["A", "B", "C", "D"], "B"),
+new TriviaQuestion("number2?", ["A", "B", "C", "D"], "B"),
+
+];
 
 function TriviaQuiz(questions) {
 	this.questions = questions;
 	this.timer = 0;
 }
+
 
 function TriviaQuestion(text, choices, answer) {
     this.text = text;
@@ -27,18 +34,28 @@ function TriviaQuestion(text, choices, answer) {
     this.answer = answer;
 }
 
+
+function shuffleArray(array) {
+	for (var i=0; i<array.length; i++) {
+		let j = Math.floor(Math.random() * (i+1));
+		[array[i], array[j]] = [array[j], array[i]];
+		console.log([i]);
+	}
+}
 //Making the list of questions//
-var questions = [
-new TriviaQuestion("number1?", ["A", "B", "C", "D"], "B"),
-new TriviaQuestion("number2?", ["A", "B", "C", "D"], "B"),
 
-];
+//console.log(questions);
 
-console.log(questions);
-//ERROR:question is still undefined!//
+
+function get(x) {
+	return document.getElementById(x);
+
+}
+
+
 
 var quiz = new TriviaQuiz(questions);
-console.log(quiz.questions)
+//console.log(quiz.questions)
 // use quiz.timer
 
 
