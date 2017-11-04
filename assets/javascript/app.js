@@ -39,10 +39,10 @@ function TriviaQuestion(text, choices, answer) {
 }
 
 function renderHTML() {
-	// Only write the html if the selected answer is valid.
 	// This can become undefined when we call renderHtml with
 	// numrounds > choices.length(). For instance, if the user
 	// keeps clicking on the buttons.
+	//Couldn't get the game to revert back to start properly, so made it as undefined as a way to make it work//
 	if (quiz.selected !== undefined) {
 		$("#choice1").html(quiz.selected.choices[0]);
 		$("#choice2").html(quiz.selected.choices[1]);
@@ -63,9 +63,10 @@ function onButtonClick(num) {
 	// If a button is clicked after we've shown all
 	// the questions, just return early and make sure
 	// the button to restart is shown.
+	// got the button function to work, but another button has to be clicked before the question moves to the next one; A bug I couldn't figure out//
 	if (numRounds >= questions.length) {
 		$("#roundButton").show();
-
+		return;
 	}
 
 	// The rest of this code:
@@ -93,7 +94,6 @@ function onButtonClick(num) {
 function registerEventListeners() {
 
 	// Everything here needs to be installed **after** the DOM is loaded.
-	// which is why they are all in this function.
 
 	$( "#roundButton" ).click(function() {
 		location.reload();
@@ -121,6 +121,14 @@ $(document).ready(function() {
 	registerEventListeners();
 	showQuestion();
 });
+
+//Getting the timer function to work with the existing code was difficult, where it would break rest of the code; 
+//makung a separate function with window.onload so it'd show up as the page loads
+//use $(#timer).on click to start as the gamestart button is pressed
+//make the timer variable with specified laps
+//make another div to show 00:00 on display
+//set if function to keep the timer count down and stop when it reaches 0, or if all answers have been submitted
+//reset the timer when gamereset button is pressed
 
 
 
