@@ -14,10 +14,12 @@ var numRounds = 0;
 //console.log(question);
 //shows as undefined at this point//
 var questions = [
-	new TriviaQuestion("number1?", ["This is a random", "B", "C", "D"], 0),
-	new TriviaQuestion("number2?", ["lol", "B", "C", "D"], 1),
-	new TriviaQuestion("number3?", ["jk", "B", "C", "D"], 2),
-	new TriviaQuestion("number4?", ["A", "B", "C", "D"], 3),
+	new TriviaQuestion("Which of the following is not a boss in Diablo III, Act I?", ["Leoric", "Arneae", "The Butcher", "Maghda"], 3),
+	new TriviaQuestion("Who are the three Prime Evils in the Diablo series", ["Baal", "Mephisto", "Rakanoth", "Diablo"], 2),
+	new TriviaQuestion("What is the cheat command that reveals the entire map in Starcraft", ["Show me the map", "Black sheep wall", "Starcraft Map", "Reveal Regions"], 1),
+	new TriviaQuestion("'Show me the money' acheieves what, in Starcraft", ["Gives you 10.000 gold", "Gives you 10,000 gas", "Gives you 10,000 ore and gas", "Gives you 10,000 ores"], 2),
+	new TriviaQuestion("Which of the following character is NOT a healer in Overwatch", ["Mercy", "Zenyatta", "Lucio", "Mei"], 3),
+
 ];
 
 var quiz = null;
@@ -63,7 +65,7 @@ function onButtonClick(num) {
 	// the button to restart is shown.
 	if (numRounds >= questions.length) {
 		$("#roundButton").show();
-		return;
+
 	}
 
 	// The rest of this code:
@@ -74,7 +76,7 @@ function onButtonClick(num) {
 
 	++numRounds;
 
-	if(quiz.selected.choices[num-1] == quiz.selected.answer) {
+	if(quiz.selected.choices[num-1] === quiz.selected.answer) {
 		correctAnswer++;
 		$("#correctAnswer").html("Correct: " + correctAnswer);
 	}
